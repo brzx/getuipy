@@ -94,7 +94,12 @@ class IGeTui:
             if mint > diff:
                 mint = diff
                 s_url = host
-        if s_url != "":
+        # if s_url != "":
+        #     self.host = s_url
+        # use configuration host replace the fastest host
+        if len(self.hosts) > 0:
+            self.host = self.hosts[0]
+        elif s_url != "":
             self.host = s_url
 
     def cycleInspect(self):
